@@ -1,3 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Payment History</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <header class="app-header" role="banner">
+      <div class="header-left">
+        <h1 class="app-title">Payment History</h1>
+      </div>
+      <div class="header-right">
+        <button id="theme-toggle" class="btn" aria-pressed="false" title="Toggle dark mode">
+          <span class="icon" aria-hidden="true">🌓</span>
+          <span class="btn-label">Theme</span>
+        </button>
+        <button id="export-csv" class="btn btn-primary" title="Export visible rows to CSV">
+          <span class="icon" aria-hidden="true">⬇️</span>
+          <span class="btn-label">Export CSV</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="container" role="main">
+      <section class="toolbar" aria-label="Filters and search">
+        <div class="field">
+          <label for="search-input">Search</label>
+          <input id="search-input" type="search" placeholder="Search description or ID" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="date-from">From</label>
+          <input id="date-from" type="date">
+        </div>
+        <div class="field">
+          <label for="date-to">To</label>
+          <input id="date-to" type="date">
+        </div>
+        <div class="field">
+          <label for="status-filter">Status</label>
+          <select id="status-filter">
+            <option value="">All</option>
+            <option>Completed</option>
+            <option>Pending</option>
+            <option>Failed</option>
+            <option>Refunded</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="method-filter">Method</label>
+          <select id="method-filter">
+            <option value="">All</option>
+            <option>Card</option>
+            <option>Bank Transfer</option>
+            <option>PayPal</option>
+            <option>Cash</option>
+            <option>Crypto</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="page-size">Rows</label>
+          <select id="page-size">
+            <option>10</option>
+            <option selected>25</option>
+            <option>50</option>
+            <option>100</option>
+          </select>
+        </div>
+      </section>
+
+      <section class="summary" aria-live="polite" aria-atomic="true">
+        <div class="stat">
+          <div class="stat-label">Transactions</div>
+          <div class="stat-value" id="stat-count">0</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Completed</div>
+          <div class="stat-value" id="stat-completed">$0.00</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Refunded</div>
+          <div class="stat-value" id="stat-refunded">$0.00</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Failed</div>
+          <div class="stat-value" id="stat-failed">$0.00</div>
+        </div>
+      </section>
+
+      <div class="table-container">
+        <table id="payments-table">
+          <thead>
+            <tr>
+              <th scope="col">
+                <button class="th-btn" data-sort="id" aria-label="Sort by ID" aria-sort="none">ID</button>
+              </th>
+              <th scope="col">
+                <button class="th-btn" data-sort="date" aria-label="Sort by Date" aria-sort="none">Date</button>
+              </th>
+              <th scope="col">
+                <button class="th-btn" data-sort="description" aria-label="Sort by Description" aria-sort="none">Description</button>
+              </th>
+              <th scope="col">
+                <button class="th-btn" data-sort="method" aria-label="Sort by Method" aria-sort="none">Method</button>
+              </th>
+              <th scope="col">
+                <button class="th-btn" data-sort="status" aria-label="Sort by Status" aria-sort="none">Status</button>
+              </th>
+              <th scope="col" class="numeric">
+                <button class="th-btn" data-sort="amount" aria-label="Sort by Amount" aria-sort="none">Amount</button>
+              </th>
+            </tr>
+          </thead>
+          <tbody id="table-body"></tbody>
+        </table>
+      </div>
+
+      <nav class="pagination" aria-label="Pagination controls">
+        <button id="prev-page" class="btn" title="Previous page">Prev</button>
+        <span id="page-indicator" aria-live="polite">Page 1 of 1</span>
+        <button id="next-page" class="btn" title="Next page">Next</button>
+      </nav>
+    </main>
+
+    <footer class="app-footer" role="contentinfo">
+      <span>Sample app for payment history UI</span>
+    </footer>
+
+    <script src="./app.js" defer></script>
+  </body>
+  </html>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
