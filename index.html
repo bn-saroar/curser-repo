@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ejobindia • Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="app-header">
+        <div class="header-top">
+          <button class="icon-button" id="btn-menu" aria-label="Open menu">
+            <i class="ri-menu-2-line"></i>
+          </button>
+          <div class="brand">
+            <div class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 64 64" width="28" height="28" role="img">
+                <defs>
+                  <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+                    <stop offset="100%" stop-color="#ffffff" stop-opacity="0.65"/>
+                  </linearGradient>
+                </defs>
+                <path fill="url(#g)" d="M32 4c9 0 10 7 7 12-2 4-8 8-8 12s6 4 10 8c6 6 3 14-9 14S10 42 10 30 20 4 32 4z"/>
+              </svg>
+            </div>
+            <div class="brand-text">
+              <span class="brand-greet">Welcome to</span>
+              <span class="brand-name">ejobindia</span>
+            </div>
+          </div>
+          <button class="chip user-chip" id="btn-profile" aria-label="Account">
+            <img class="avatar" src="https://i.pravatar.cc/64?img=5" alt="User" />
+            <span class="chip-text">Rahim Sorkar</span>
+          </button>
+        </div>
+
+        <div class="search-row">
+          <div class="search">
+            <i class="ri-search-2-line"></i>
+            <input id="searchInput" type="text" placeholder="Search modules, grades, batches…" />
+            <button class="icon-button" id="btn-voice" aria-label="Voice search">
+              <i class="ri-mic-line"></i>
+            </button>
+          </div>
+          <button class="icon-button" id="btn-theme" aria-label="Toggle theme">
+            <i class="ri-sun-line" id="themeIcon"></i>
+          </button>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="quick-grid" aria-label="Quick actions">
+          <a class="card" href="#" data-action="payment">
+            <div class="card-icon purple"><i class="ri-bill-line"></i></div>
+            <div class="card-body">
+              <h3>Payment Info</h3>
+              <p>Invoices, dues and receipts</p>
+            </div>
+          </a>
+          <a class="card" href="#" data-action="batch">
+            <div class="card-icon indigo"><i class="ri-team-line"></i></div>
+            <div class="card-body">
+              <h3>Batch Info</h3>
+              <p>Schedules and mentors</p>
+            </div>
+          </a>
+          <a class="card" href="#" data-action="attendance">
+            <div class="card-icon green"><i class="ri-user-follow-line"></i></div>
+            <div class="card-body">
+              <h3>Attendance</h3>
+              <p>Check-ins and logs</p>
+            </div>
+          </a>
+          <a class="card" href="#" data-action="grades">
+            <div class="card-icon orange"><i class="ri-article-line"></i></div>
+            <div class="card-body">
+              <h3>Grades</h3>
+              <p>Results and transcripts</p>
+            </div>
+          </a>
+          <a class="card" href="#" data-action="holidays">
+            <div class="card-icon pink"><i class="ri-calendar-close-line"></i></div>
+            <div class="card-body">
+              <h3>Holidays</h3>
+              <p>Upcoming closures</p>
+            </div>
+          </a>
+          <a class="card" href="#" data-action="interviews">
+            <div class="card-icon teal"><i class="ri-user-voice-line"></i></div>
+            <div class="card-body">
+              <h3>Interviews</h3>
+              <p>Schedule and status</p>
+            </div>
+          </a>
+        </section>
+
+        <section class="updates" aria-label="Highlights">
+          <article class="update">
+            <div class="update-media">
+              <i class="ri-megaphone-line"></i>
+            </div>
+            <div class="update-body">
+              <h4>Orientation for new batch</h4>
+              <p>Monday 9:30 AM in Hall C. Join 5 minutes early.</p>
+            </div>
+            <button class="icon-button ghost" aria-label="More"><i class="ri-more-2-fill"></i></button>
+          </article>
+          <article class="update">
+            <div class="update-media">
+              <i class="ri-star-smile-line"></i>
+            </div>
+            <div class="update-body">
+              <h4>Top performer</h4>
+              <p>Congrats to you for maintaining 98% attendance this month.</p>
+            </div>
+            <button class="icon-button ghost" aria-label="More"><i class="ri-more-2-fill"></i></button>
+          </article>
+        </section>
+      </main>
+
+      <footer class="app-footer">
+        <nav class="social">
+          <a href="#" aria-label="Google"><i class="ri-google-fill"></i></a>
+          <a href="#" aria-label="Facebook"><i class="ri-facebook-circle-fill"></i></a>
+          <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+        </nav>
+      </footer>
+    </div>
+
+    <dialog id="menuDialog">
+      <div class="sheet">
+        <div class="sheet-head">
+          <h3>Menu</h3>
+          <button class="icon-button" data-close><i class="ri-close-line"></i></button>
+        </div>
+        <ul class="sheet-list">
+          <li><a href="#"><i class="ri-home-5-line"></i> Dashboard</a></li>
+          <li><a href="#"><i class="ri-user-3-line"></i> Profile</a></li>
+          <li><a href="#"><i class="ri-settings-3-line"></i> Settings</a></li>
+          <li><a href="#"><i class="ri-logout-circle-r-line"></i> Logout</a></li>
+        </ul>
+      </div>
+    </dialog>
+
+    <script src="./app.js"></script>
+  </body>
+  </html>
+
